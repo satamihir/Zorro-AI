@@ -4,15 +4,17 @@ An internal AI chatbot that lets analysts query a corpus of documents in plain E
 
 ## The client
 
-**Driftwood Capital** — fictional independent investment research firm. Their analysts spend half their week reading 10-Ks and 10-Qs before they can produce any original analysis. Zorro AI Copilot eats that intake work so they can skip straight to insight.
+**Velocity Data Capital** — independent investment research firm with ~40 analysts. Their analysts spend half their week reading 10-Ks and 10-Qs before they can produce any original analysis. Zorro AI Copilot eats that intake work so they can skip straight to insight.
 
-Full brief: [docs/client-brief.md](docs/client-brief.md)
+- Full brief: [docs/client-brief-velocity-data-capital.md](docs/client-brief-velocity-data-capital.md)
+- Architecture: [docs/zorro-ai-copilot-architecture.md](docs/zorro-ai-copilot-architecture.md)
 
 ## Stack
 
 | Layer              | Choice                                               |
 | ------------------ | ---------------------------------------------------- |
 | Backend            | Python + FastAPI                                     |
+| LLM orchestration  | PydanticAI                                           |
 | Frontend           | Vite + React SPA + TypeScript                        |
 | Database           | Supabase Postgres (users, chats, documents, chunks)  |
 | Migrations         | SQLAlchemy models + Alembic                          |
@@ -29,7 +31,9 @@ zorro-ai-copilot/
 ├── README.md           # this file
 ├── data/               # local corpus + download script (payloads gitignored)
 ├── docs/
-│   └── client-brief.md # the client one-pager
+│   ├── client-brief-velocity-data-capital.md # the client one-pager
+│   ├── zorro-ai-copilot-architecture.md      # target architecture
+│   └── guides/                               # Supabase, backend, frontend setup
 ├── backend/            # FastAPI service
 └── frontend/           # React SPA (Vite)
 ```
